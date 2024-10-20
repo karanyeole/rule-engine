@@ -4,7 +4,7 @@
 The Rule Engine is a web application that allows users to define rules using a simple input form. It parses these rules and generates an Abstract Syntax Tree (AST) for further processing. This project utilizes Flask for the backend and incorporates a user-friendly interface for easy rule creation.
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS
 - **Backend**: Flask (Python)
 - **Database**: SQLite
 - **Containerization**: Docker
@@ -31,18 +31,6 @@ Build the Docker containers:
 docker-compose up --build
 Access the application: Open your web browser and navigate to http://localhost:5000.
 
-## Project Structure
-graphql
-Copy code
-rule-engine/
-│
-├── app.py               # Main application file
-├── Dockerfile           # Dockerfile for building the application image
-├── docker-compose.yml   # Docker Compose file for running containers
-├── requirements.txt     # Python dependencies
-├── static/              # Directory for static files (CSS, JS)
-├── templates/           # Directory for HTML templates
-└── README.md            # Project documentation
 
 ## Dependencies
 Install the required Python dependencies by running:
