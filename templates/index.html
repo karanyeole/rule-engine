@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Engine</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rule Engine</h1>
+        <form id="ruleForm">
+            <label for="rule">Enter Rule:</label>
+            <input type="text" id="rule" name="rule" required placeholder="e.g. age > 30 AND (salary > 50000 OR (position = 'Manager'))">
+            <button type="submit">Create Rule</button>
+        </form>
+
+        <h2>Created AST:</h2>
+        <pre id="ast"></pre>
+        <p id="error" class="error-message"></p> <!-- Error message display -->
+    </div>
+
+    <script>
+        document.getElementById('ruleForm').onsubmit = async function(event) {
+            event.preventDefault();
+            const rule = document.getElementById('rule').value;
+            const response = await fetch('/create_rule', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ rule })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                document.getElementById('ast').textContent = JSON.stringify(result.ast, null, 2);
+                document.getElementById('error').textContent = ''; // Clear error message
+                document.getElementById('rule').value = ''; // Clear input field
+            } else {
+                document.getElementById('ast').textContent = ''; // Clear AST display
+                document.getElementById('error').textContent = result.error || 'An error occurred'; // Show error message
+            }
+        };
+    </script>
+</body>
+</html>
