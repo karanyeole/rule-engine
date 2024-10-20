@@ -55,10 +55,3 @@ Contributions are welcome! Please submit a pull request or create an issue for a
 ## License
 This project is licensed under the MIT License.
 
-
-## Instructions for Using the README
-1. **Replace any placeholders** in the README if necessary, especially the GitHub URL.
-2. **Add any additional features or modifications** you may have implemented that aren't covered in this draft.
-3. **Test the instructions** to ensure they work as expected before finalizing your README.
-
-Feel free to adjust the content based on any specific details of your project or personal preferences! Let me know if you need further assistance!
